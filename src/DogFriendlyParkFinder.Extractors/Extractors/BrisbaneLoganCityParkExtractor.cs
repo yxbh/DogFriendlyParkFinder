@@ -1,24 +1,18 @@
 ﻿using DogFriendlyParkFinder.Core;
 using HtmlAgilityPack;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DogFriendlyParkFinder.Extractors;
 
+/// <summary>
+/// Dog friend park extraction for Logan City in Brisbane.
+/// </summary>
 public class BrisbaneLoganCityParkExtractor : IParkRecordExtractor
 {
-    private string _apiKey;
-
     private readonly ILogger<BrisbaneLoganCityParkExtractor> _logger;
 
     public BrisbaneLoganCityParkExtractor(ILogger<BrisbaneLoganCityParkExtractor> logger)
     {
-        _apiKey = string.Empty;
         _logger = logger;
     }
 
@@ -37,7 +31,7 @@ public class BrisbaneLoganCityParkExtractor : IParkRecordExtractor
 
         var parkList = htmlDocument.DocumentNode.Descendants("ul")
             .Where(node => node.GetAttributeValue("class", "")
-            .Equals("list list--record_parks_results")).FirstOrDefault();
+            .Equals("list list--record_parks_results")).First();
 
         var parkListItems = parkList.Descendants("li")
             .Where(node => node.GetAttributeValue("class", "")
@@ -47,7 +41,7 @@ public class BrisbaneLoganCityParkExtractor : IParkRecordExtractor
         {
             var parkNode = parkListItem.Descendants("a")
                 .Where(node => node.GetAttributeValue("class", "")
-                                          .Equals("list__link")).FirstOrDefault();
+                                          .Equals("list__link")).First();
             var parkName = parkNode?.InnerText;
             var parkUrl = parkNode?.GetAttributeValue("href", "");
             parkUrl = $"https://www.logan.qld.gov.au{parkUrl}";
@@ -73,7 +67,7 @@ public class BrisbaneLoganCityParkExtractor : IParkRecordExtractor
             //               .StartsWith("https://www.google.com/maps/search/")).FirstOrDefault();
             var parkLocation = parkLocationNode?.InnerText.Trim();
 
-            var paprkLocationAnchorNode = parkLocationNode!.Descendants("a").FirstOrDefault();
+            var paprkLocationAnchorNode = parkLocationNode!.Descendants("a").First();
             var parkLocationAnchorHref = paprkLocationAnchorNode?.GetAttributeValue("href", "");
             var parkLocationAnchorHrefParts = parkLocationAnchorHref?.Split("&query=").Last().Split(",");
 
@@ -81,7 +75,7 @@ public class BrisbaneLoganCityParkExtractor : IParkRecordExtractor
             (
                 parkName ?? string.Empty,
                 $"{parkLocation}, Logan City, Brisbane, QLD, AU",
-                "https://www.logan.qld.gov.au/directory/search?directoryID=1&showInMap=&keywords=off+leash&categoryId=&postcode=&search=Search"
+                url
             )
             {
                 Url = parkUrl,

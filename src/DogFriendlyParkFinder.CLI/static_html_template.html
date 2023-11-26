@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Map</title>
+    <title>Dog Friend Parks Map</title>
     <style>
         #map {
             height: 100vh;
@@ -24,10 +24,16 @@
                 {{REPLACE_COORDINATES}}
             ];
 
+            // Your array of titles
+            var titles = [
+                {{REPLACE_TITLES}}
+            ];
+
             // Add markers to the map
-            locations.forEach(function(location) {
+            locations.forEach(function(location, index) {
                 var marker = new google.maps.Marker({
                     position: location,
+                    title: titles[index],
                     map: map
                 });
             });
