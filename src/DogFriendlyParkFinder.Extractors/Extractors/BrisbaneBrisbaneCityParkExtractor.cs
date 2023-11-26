@@ -54,21 +54,14 @@ public class BrisbaneBrisbaneCityParkExtractor : IParkRecordExtractor
             // Since we don't really have a way to easily run Javascript in .NET we use Google Geocoding Service to grab the coordinate from the park address.
             //
 
+            //
+            // NOTE 2: The location column contains both the park name and the address.
+            // This can cause issues with the Google Geocoding Service as it may not be able to find the address
+            // and end up returning a partial match (i.e. coordinate to the suburb name instead of the park itself).
+            // We should consider removing the park name of the location string, or just use the park name and hope Gecoding can figure the rest of the detail.
+            //
+
             var latlong = gls.GetLatLongFromAddress(location); // returns null if address not found.
-
-
-            //var parkHtmlDoc = new HtmlDocument();
-            //_logger.LogDebug($"Loading {parkUrl}");
-            //var parkHtml = await httpClient.GetStringAsync(parkUrl);
-            //parkHtmlDoc.LoadHtml(parkHtml);
-
-            //var parkLocationNode = parkHtmlDoc.DocumentNode.Descendants("th")
-            //    .Where(node => node.GetAttributeValue("class", "")
-            //                   .Equals("twEDLabel") && node.InnerText.Trim().Contains("Location")).First();
-
-            //var paprkLocationAnchorNode = parkLocationNode!.ParentNode.Descendants("a").First();
-            //var parkLocationAnchorHref = paprkLocationAnchorNode?.GetAttributeValue("href", "");
-            //var parkLocationAnchorHrefParts = parkLocationAnchorHref?.Split("&query=").Last().Split("(").First().Split(",");
 
             yield return new ParkRecord
             (
