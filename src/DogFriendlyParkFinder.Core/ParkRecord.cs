@@ -10,6 +10,6 @@ public record ParkRecord(string Name, string Location, string Source)
 
     public override string ToString()
     {
-        return $"Name: \"{Name}\", Location: \"{Location}\", Url: \"{Url}\"";
+        return $"Name: \"{Name}\", Location: \"{Location}\", Coordinate: {Latitude}.{Longitude} Url: \"{Url}\"";
     }
 }
