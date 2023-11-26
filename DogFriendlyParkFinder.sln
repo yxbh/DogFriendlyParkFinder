@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogFriendlyParkFinder.CLI", "src\DogFriendlyParkFinder.CLI\DogFriendlyParkFinder.CLI.csproj", "{9117EC6B-4447-48E0-98D1-0CB7B61F407C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogFriendlyParkFinder.Core", "src\DogFriendlyParkFinder.Core\DogFriendlyParkFinder.Core.csproj", "{15DBC11B-9363-419C-91B4-1B5699C9EC68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogFriendlyParkFinder.Extractors", "src\DogFriendlyParkFinder.Extractors\DogFriendlyParkFinder.Extractors.csproj", "{309FEF00-A846-4ED3-B446-76D9422B8F21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9117EC6B-4447-48E0-98D1-0CB7B61F407C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9117EC6B-4447-48E0-98D1-0CB7B61F407C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9117EC6B-4447-48E0-98D1-0CB7B61F407C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9117EC6B-4447-48E0-98D1-0CB7B61F407C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15DBC11B-9363-419C-91B4-1B5699C9EC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15DBC11B-9363-419C-91B4-1B5699C9EC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15DBC11B-9363-419C-91B4-1B5699C9EC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15DBC11B-9363-419C-91B4-1B5699C9EC68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309FEF00-A846-4ED3-B446-76D9422B8F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309FEF00-A846-4ED3-B446-76D9422B8F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309FEF00-A846-4ED3-B446-76D9422B8F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309FEF00-A846-4ED3-B446-76D9422B8F21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B0363E3-AB9B-4085-A76C-502BEA51FC63}
+	EndGlobalSection
+EndGlobal
